@@ -2,7 +2,7 @@ NAME = ex00
 
 CXX = c++ -g
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = $(addprefix ./, $(SRCS:.cpp=.o))
 

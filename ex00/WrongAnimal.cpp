@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:06:41 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 04:36:18 by tkatsuma         ###   ########.fr       */
+/*   Created: 2025/12/28 05:19:14 by tkatsuma          #+#    #+#             */
+/*   Updated: 2025/12/28 05:19:16 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
-Dog::Dog() { type_ = "Dog"; }
+WrongAnimal::WrongAnimal() : type_("WrongAnimal") {}
 
-Dog::Dog(const Dog& other) : Animal(other) { *this = other; }
+WrongAnimal::WrongAnimal(const WrongAnimal& other) { *this = other; }
 
-Dog& Dog::operator=(const Dog& other) {
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
   if (this != &other) {
     type_ = other.type_;
   }
   return *this;
 }
 
-Dog::~Dog() {}
+WrongAnimal::~WrongAnimal() {}
 
-void Dog::makeSound() const {
-  std::cout << "(" << getType() << ") Bow wow!" << std::endl;
+void WrongAnimal::makeSound() const {
+  std::cout << "(" << getType() << " cannot make sounds...)" << std::endl;
 }
+
+std::string WrongAnimal::getType() const { return type_; }

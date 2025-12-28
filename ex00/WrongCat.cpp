@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:06:31 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 04:35:40 by tkatsuma         ###   ########.fr       */
+/*   Created: 2025/12/28 05:20:44 by tkatsuma          #+#    #+#             */
+/*   Updated: 2025/12/28 06:33:51 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-#define CAT_H
+#include "WrongCat.hpp"
 
-#include <iostream>
-#include <string>
+WrongCat::WrongCat() { type_ = "WrongCat"; }
 
-#include "Animal.hpp"
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
+  *this = other;
+}
 
-class Cat : public Animal {
- public:
-  Cat();
-  Cat(const Cat& other);
-  Cat& operator=(const Cat& other);
-  ~Cat();
+WrongCat& WrongCat::operator=(const WrongCat& other) {
+  if (this != &other) {
+    type_ = other.type_;
+  }
+  return *this;
+}
 
-  void makeSound() const;
-};
+WrongCat::~WrongCat() {}
 
-#endif
+void WrongCat::makeSound() const {
+  std::cout << "(" << getType() << " don't bark)" << std::endl;
+}
