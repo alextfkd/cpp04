@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/28 14:13:30 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 15:27:28 by tkatsuma         ###   ########.fr       */
+/*   Created: 2025/12/28 14:21:43 by tkatsuma          #+#    #+#             */
+/*   Updated: 2025/12/28 14:23:20 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef A_MATERIA_H
-#define A_MATERIA_H
+#ifndef I_CHARACTER_H
+#define I_CHARACTER_H
 
-#include <iostream>
 #include <string>
 
-#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class AMateria {
- protected:
-  std::string type_;
-
+class ICharacter {
  public:
-  AMateria();
-  AMateria(const std::string& type);
-  AMateria(const AMateria& other);
-  AMateria& operator=(const AMateria& other);
-  virtual ~AMateria();
-
-  const std::string& getType() const;  // Returns the materia type
-  virtual AMateria*  clone() const = 0;
-  virtual void       use(ICharacter& target);
+  virtual ~ICharacter() {}
+  const virtual std::string& getName() const                  = 0;
+  virtual void               equip(AMateria* m)               = 0;
+  virtual void               unequip(int idx)                 = 0;
+  virtual void               use(int idx, ICharacter& target) = 0;
 };
 
 #endif
