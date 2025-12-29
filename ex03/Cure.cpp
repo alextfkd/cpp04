@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CureMateria.cpp                                    :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 14:34:54 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/29 03:42:08 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/29 06:54:49 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "CureMateria.hpp"
+#include "Cure.hpp"
 
-CureMateria::CureMateria() : AMateria("cure") {}
+Cure::Cure() : AMateria("cure") {}
 
-CureMateria::CureMateria(const CureMateria& other) : AMateria(other) {
-  *this = other;
-}
+Cure::Cure(const Cure& other) : AMateria(other) { *this = other; }
 
-CureMateria& CureMateria::operator=(const CureMateria& other) {
+Cure& Cure::operator=(const Cure& other) {
   if (this != &other) {
     AMateria::operator=(other);
   }
   return *this;
 }
 
-CureMateria::~CureMateria() {}
+Cure::~Cure() {}
 
-AMateria* CureMateria::clone() const {
-  CureMateria* cloned = new CureMateria(*this);
+AMateria* Cure::clone() const {
+  Cure* cloned = new Cure(*this);
   return cloned;
 }
 
-void CureMateria::use(ICharacter& target) {
+void Cure::use(ICharacter& target) {
   std::cout << "* heals " + target.getName() + "’s wounds *" << std::endl;
 }

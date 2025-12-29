@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 14:21:43 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/29 03:33:10 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:25:09 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,20 @@ void Character::initInventory() {
   }
 }
 
-bool Character::isValidIndex(int idx) {
-  if (0 <= idx && idx < 4) {
-    return true;
-  }
-  return false;
-}
+bool Character::isValidIndex(int idx) { return (0 <= idx && idx < 4); }
 
 const std::string& Character::getName() const { return name_; }
 
-void Character::equip(AMateria* m) {
-  if (m == NULL) {
+void Character::equip(AMateria* materia) {
+  if (materia == NULL) {
     std::cout << "(Invalid materia. Nothing happens.)" << std::endl;
     return;
   }
   for (int idx = 0; idx < 4; idx++) {
     if (inventory_[idx] == NULL) {
-      inventory_[idx] = m;
-      std::cout << "(Successfully equipped " << m->getType() << " materia.)"
-                << std::endl;
+      inventory_[idx] = materia;
+      std::cout << "(Successfully equipped " << materia->getType()
+                << " materia.)" << std::endl;
       return;
     }
   }
@@ -77,7 +72,7 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
-  if (!isValidIndex(idx)) {
+  if (!Character::isValidIndex(idx)) {
     std::cout << "(Inventory[" << idx << "]is empty. Nothing happens.)"
               << std::endl;
     return;
@@ -92,7 +87,7 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
-  if (!isValidIndex(idx)) {
+  if (!Character::isValidIndex(idx)) {
     std::cout << "(Inventory[" << idx << "]is empty. Nothing happens.)"
               << std::endl;
     return;
@@ -104,5 +99,4 @@ void Character::use(int idx, ICharacter& target) {
   }
   std::cout << "(Inventory[" << idx << "]is empty. Nothing happens.)"
             << std::endl;
-  return;
 }

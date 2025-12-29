@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 03:52:11 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/29 04:04:24 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:26:31 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ using just a string that identifies its type.
 class MateriaSource : public IMateriaSource {
  private:
   AMateria* memory_[4];
+  int       memory_index_;
+  void      initMemory();
 
  public:
   MateriaSource();
@@ -50,7 +52,7 @@ class MateriaSource : public IMateriaSource {
   MateriaSource& operator=(const MateriaSource& other);
   ~MateriaSource();
 
-  void      learnMateria(AMateria*);
+  void      learnMateria(AMateria* materia);
   AMateria* createMateria(std::string const& type);
 };
 

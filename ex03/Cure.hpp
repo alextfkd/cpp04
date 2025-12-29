@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CureMateria.hpp                                    :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/28 14:34:54 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 15:27:15 by tkatsuma         ###   ########.fr       */
+/*   Created: 2025/12/29 06:54:43 by tkatsuma          #+#    #+#             */
+/*   Updated: 2025/12/29 06:54:45 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 #include "AMateria.hpp"
 
-class CureMateria : public AMateria {
+class Cure : public AMateria {
  public:
-  CureMateria();
-  CureMateria(const CureMateria& other);
-  CureMateria& operator=(const CureMateria& other);
-  virtual ~CureMateria();
+  Cure();
+  Cure(const Cure& other);
+  Cure& operator=(const Cure& other);
+  virtual ~Cure();
 
   AMateria* clone() const;
   void      use(ICharacter& target);

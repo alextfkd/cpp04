@@ -1,8 +1,8 @@
-NAME = ex02
+NAME = ex03
 
 CXX = c++ -g
 
-SRCS = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
 
 OBJS = $(addprefix ./, $(SRCS:.cpp=.o))
 

@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 14:21:43 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/12/28 14:23:20 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:31:12 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <string>
 
-#include "AMateria.hpp"
+class AMateria;
 
-class ICharacter {
+class ICharacter {  // NOLINT
  public:
   virtual ~ICharacter() {}
   const virtual std::string& getName() const                  = 0;
-  virtual void               equip(AMateria* m)               = 0;
+  virtual void               equip(AMateria* materia)         = 0;
   virtual void               unequip(int idx)                 = 0;
   virtual void               use(int idx, ICharacter& target) = 0;
 };
